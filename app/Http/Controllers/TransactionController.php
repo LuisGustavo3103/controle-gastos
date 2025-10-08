@@ -12,21 +12,21 @@ class TransactionController extends Controller
 {
     public function index(Request $request)
     {
-        return view('transaction.index');
+        // return view('transaction.index');
     }
 
     public function create() 
     {
-        return view('transaction.create');    
+        // return view('transaction.create');       
     }
 
     public function store(TransactionRequest $request)
-    {
+    {      
         $incommingFields = $request->validated();
 
         try{
             Transaction::create([
-                'decription' => data_get($incommingFields, 'description'),
+                'description' => data_get($incommingFields, 'description'),
                 'amount' => data_get($incommingFields, 'amount'),
                 'type' => data_get($incommingFields, 'type'),
                 'date' => data_get($incommingFields, 'date')
@@ -34,9 +34,9 @@ class TransactionController extends Controller
         }catch(Exception $e){
             Log::error($e);
 
-            return redirect()->route('transaction.index')->with('error', 'Erro ao registrar transação!');
+            return redirect()->route('home')->with('error', 'Erro ao registrar transação!');
         }
 
-        return redirect()->route('transaction.index')->with('sucess', 'Transação registrada com sucesso!');
+        return redirect()->route('home')->with('success', 'Transação registrada com sucesso!');
     }
 }

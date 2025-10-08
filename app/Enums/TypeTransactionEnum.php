@@ -4,8 +4,8 @@ namespace App\Enums;
 
 enum TypeTransactionEnum: string
 {
-    case RECEIVED = 'recebido';
-    case SENT = 'enviado';
+    case RECEIVED = 'received';
+    case SENT = 'sent';
 
     public static function getValues(): array
     {
