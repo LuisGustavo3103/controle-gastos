@@ -16,5 +16,6 @@ class Transaction extends Model
 
     protected $casts = [
         'type' => TypeTransactionEnum::class,
+        'date' => 'datetime'
     ];
 }

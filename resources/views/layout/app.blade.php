@@ -24,8 +24,9 @@
     <nav class="w-full bg-blue-900 py-4">
         <div class="mx-auto max-w-6xl flex justify-between items-center">
             <div>
-                <a href="#" class="text-white uppercase p-2 rounded hover:bg-blue-950">Dashboard</a>
-                <a href="#" class="text-white uppercase p-2 rounded hover:bg-blue-950">Transações</a>
+                <a href="{{ route('home') }}" class="text-white uppercase p-2 rounded hover:bg-blue-950">Dashboard</a>
+                <a href="{{ route('transaction.index') }}"
+                    class="text-white uppercase p-2 rounded hover:bg-blue-950">Transações</a>
                 <a href="#" class="text-white uppercase p-2 rounded hover:bg-blue-950">Categorias</a>
             </div>
             <div class="bg-white px-2 py-1 rounded">
