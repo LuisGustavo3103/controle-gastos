@@ -43,4 +43,11 @@ class TransactionController extends Controller
 
         return redirect()->route('transaction.index')->with('success', 'Transação registrada com sucesso!');
     }
+
+    public function destroy(Transaction $transaction)
+    {
+        $transaction->delete();
+
+        return redirect()->route('transaction.index')->with('success', 'Transação excluída com sucesso!');
+    }
 }

@@ -84,6 +84,14 @@
                             <p class="text-red-500 font-bold">- R$ {{ number_format($transaction->amount, 2, ',', '.') }}
                             </p>
                         @endif
+                        <div>
+                            <form class="px-1" action="{{ route('transaction.destroy', $transaction) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" onclick="return confirm('Deseja realmente excluir?')"
+                                    class="bg-red-500 py-1 px-4 rounded text-white cursor-pointer hover:bg-red-700">Excluir</button>
+                            </form>
+                        </div>
                     </div>
                 @endforeach
             </div>
