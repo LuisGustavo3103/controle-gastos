@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\TypeTransactionEnum;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Transaction;
 use Exception;
@@ -14,8 +15,17 @@ class TransactionController extends Controller
     {
         $transactions = Transaction::query()->orderByDesc('created_at')->get();
 
+        $totalSent = Transaction::query()->where('type', TypeTransactionEnum::SENT)->sum('amount');
+
+        $totalReceived = Transaction::query()->where('type', TypeTransactionEnum::RECEIVED)->sum('amount');
+
+        $saldo = $totalReceived - $totalSent;
+
         return view('transactions.index', [
-            'transactions' => $transactions
+            'transactions' => $transactions,
+            'totalSent' => $totalSent,
+            'totalReceived' => $totalReceived,
+            'saldo' => $saldo
         ]);
     }
 

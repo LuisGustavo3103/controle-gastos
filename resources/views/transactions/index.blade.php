@@ -16,15 +16,15 @@
             <div class="grid grid-cols-3 space-x-3 py-3">
                 <div class="bg-white rounded-2xl p-5">
                     <p class="text-gray-500">Total de Entradas</p>
-                    <p class="text-2xl text-green-500 font-bold">R$1000,00</p>
+                    <p class="text-2xl text-green-500 font-bold">R$ {{ number_format($totalReceived, 2, ',', '.') }}</p>
                 </div>
                 <div class="bg-white rounded-2xl p-5">
                     <p class="text-gray-500">Total de Saídas</p>
-                    <p class="text-2xl text-red-500 font-bold">R$1000,00</p>
+                    <p class="text-2xl text-red-500 font-bold">R$ {{ number_format($totalSent, 2, ',', '.') }}</p>
                 </div>
                 <div class="bg-white rounded-2xl p-5">
                     <p class="text-gray-500">Saldo Atual</p>
-                    <p class="text-2xl text-blue-500 font-bold">R$1000,00</p>
+                    <p class="text-2xl text-blue-500 font-bold">R$ {{ number_format($saldo, 2, ',', '.') }}</p>
                 </div>
             </div>
             <div class="bg-white rounded-2xl p-5">
