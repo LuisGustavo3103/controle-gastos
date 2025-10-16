@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\TypeTransactionEnum;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
@@ -21,4 +22,9 @@ class Transaction extends Model
         'type' => TypeTransactionEnum::class,
         'date' => 'datetime'
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
